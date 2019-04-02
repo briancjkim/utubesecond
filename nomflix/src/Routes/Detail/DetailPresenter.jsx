@@ -8,7 +8,7 @@ import Videos from "../../Components/Videos";
 import Production from "../../Components/Production";
 import Season from "../../Components/Season";
 const Container = styled.div`
-  height: 100vh;
+  height: calc(100vh - 50px);
   width: 100vw;
   position: relative;
   padding: 50px;
@@ -32,6 +32,7 @@ const Content = styled.div`
   width: 100%;
   z-index: 1;
   position: relative;
+  overflow: hidden;
 `;
 const Cover = styled.div`
   background-image: url(${props => props.bgUrl});
@@ -44,7 +45,19 @@ const Cover = styled.div`
 const Data = styled.div`
   width: 70%;
   margin-left: 20px;
-  /* overflow: auto; */
+  ::-webkit-scrollbar {
+    width: 20px; /* remove scrollbar space */
+    background: rgba(
+      0,
+      0,
+      0,
+      0.2
+    ); /* optional: just make scrollbar invisible */
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(204, 204, 214, 0.4);
+  }
+  overflow-y: scroll;
 `;
 const Title = styled.h3`
   font-size: 32px;

@@ -5,7 +5,7 @@ import Helmet from "react-helmet";
 import { Link } from "react-router-dom";
 const Container = styled.div`
   position: relative;
-  height: 100vh;
+  height: calc(100vh - 50px);
   width: 100vw;
   padding: 50px;
 `;
@@ -23,6 +23,7 @@ const BackDrop = styled.div`
   z-index: 0;
 `;
 const Content = styled.div`
+  overflow: hidden;
   z-index: 1;
   width: 100%;
   height: 100%;
@@ -39,10 +40,22 @@ const Cover = styled.div`
 `;
 
 const Data = styled.div`
+  ::-webkit-scrollbar {
+    width: 20px; /* remove scrollbar space */
+    background: rgba(
+      0,
+      0,
+      0,
+      0.2
+    ); /* optional: just make scrollbar invisible */
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(204, 204, 214, 0.4);
+  }
+  overflow-y: scroll;
   width: 70%;
   height: 100%;
   padding-left: 20px;
-  overflow: hidden;
 `;
 
 const Title = styled.h3`
@@ -58,11 +71,6 @@ const OverView = styled.p`
 `;
 
 const ItemContainer = styled.div`
-  ::-webkit-scrollbar {
-    width: 0px; /* remove scrollbar space */
-    background: transparent; /* optional: just make scrollbar invisible */
-  }
-  overflow: scroll;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -75,9 +83,9 @@ const SubContainer = styled.div`
   min-height: 25%;
   margin-bottom: 20px;
   /* because scrollbar cut marginbottom */
-  &:last-child {
+  /* &:last-child {
     margin-bottom: 220px;
-  }
+  } */
 `;
 const SLink = styled(Link)`
   height: 100%;
@@ -100,7 +108,7 @@ const Subtitle = styled.span`
   font-weight: 300;
 `;
 const SubOverView = styled.p`
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 12px;
   line-height: 1.5;
   opacity: 0.7;
@@ -166,8 +174,8 @@ const CollectionPresenter = ({ result, error, loading }) =>
                       <Divider>•</Divider>
                       <Year>{part.release_date.substr(0, 4)}</Year>
                       <SubOverView>
-                        {part.overview.length > 500
-                          ? `${part.overview.substr(0, 500)}...`
+                        {part.overview.length > 350
+                          ? `${part.overview.substr(0, 350)}...`
                           : part.overview}
                       </SubOverView>
                     </SubInfo>

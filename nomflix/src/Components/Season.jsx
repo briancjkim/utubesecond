@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 100%;
+  width: 60%;
   margin-bottom: 20px;
+  overflow: hidden;
 `;
 const Title = styled.h4`
   width: 100%;
@@ -13,7 +14,16 @@ const Title = styled.h4`
   margin-bottom: 20px;
 `;
 const Seasons = styled.div`
-  display: flex;
+    display: flex;
+  ::-webkit-scrollbar {
+    width: 0px; /* remove scrollbar space */
+    background:rgba(0,0,0,0.2);
+    ); /* optional: just make scrollbar invisible */
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(204, 204, 214,0.4);
+  }
+  overflow-x: scroll;
 `;
 const SLink = styled(Link)`
   &:not(:last-of-type) {
@@ -38,6 +48,7 @@ const Image = styled.div`
 const MovieTitle = styled.span`
   font-size: 14px;
   opacity: 0.8;
+  margin-bottom: 10px;
 `;
 const Season = ({ seasons, tvId }) => (
   <Container>

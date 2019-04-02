@@ -3,9 +3,10 @@ import Loader from "../../Components/Loader";
 import styled from "styled-components";
 import Helmet from "react-helmet";
 import { Link } from "react-router-dom";
+
 const Container = styled.div`
   position: relative;
-  height: 100vh;
+  height: calc(100vh - 50px);
   width: 100vw;
   padding: 50px;
 `;
@@ -28,6 +29,7 @@ const Content = styled.div`
   height: 100%;
   display: flex;
   position: relative;
+  overflow: hidden;
 `;
 const Cover = styled.div`
   width: 30%;
@@ -39,10 +41,17 @@ const Cover = styled.div`
 `;
 
 const Data = styled.div`
+  ::-webkit-scrollbar {
+    width: 20px;
+    background: rgba(0, 0, 0, 0.2);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(204, 204, 214, 0.4);
+  }
+  overflow-y: scroll;
   width: 70%;
   height: 100%;
   padding-left: 20px;
-  overflow: hidden;
 `;
 
 const Title = styled.h3`
@@ -58,11 +67,6 @@ const OverView = styled.p`
 `;
 
 const ItemContainer = styled.div`
-  ::-webkit-scrollbar {
-    width: 0px; /* remove scrollbar space */
-    background: transparent; /* optional: just make scrollbar invisible */
-  }
-  overflow: scroll;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -75,9 +79,9 @@ const SubContainer = styled.div`
   min-height: 140px;
   margin-bottom: 20px;
   /* because scrollbar cut marginbottom */
-  &:last-child {
+  /* &:last-child {
     margin-bottom: 220px;
-  }
+  } */
 `;
 const PosterContainer = styled.div`
   height: 100%;
@@ -168,8 +172,8 @@ const SeasonPresenter = ({ result, error, loading }) =>
                       <Divider>•</Divider>
                       <Year>{episode.air_date}</Year>
                       <SubOverView>
-                        {episode.overview.length > 400
-                          ? `${episode.overview.substr(0, 400)}...`
+                        {episode.overview.length > 350
+                          ? `${episode.overview.substr(0, 350)}...`
                           : episode.overview}
                       </SubOverView>
                     </SubInfo>
