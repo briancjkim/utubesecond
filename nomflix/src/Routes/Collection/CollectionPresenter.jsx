@@ -128,11 +128,19 @@ const CollectionPresenter = ({ result, error, loading }) =>
       </Helmet>
       <Container>
         <BackDrop
-          bgUrl={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
+          bgUrl={
+            result.backdrop_path
+              ? `https://image.tmdb.org/t/p/original${result.backdrop_path}`
+              : require("../../assets/default_backdrop.jpg")
+          }
         />
         <Content>
           <Cover
-            bgUrl={`https://image.tmdb.org/t/p/original${result.poster_path}`}
+            bgUrl={
+              result.poster_path
+                ? `https://image.tmdb.org/t/p/original${result.poster_path}`
+                : require("../../assets/default_cover.jpg")
+            }
           />
           <Data>
             <Title>{result.name}</Title>

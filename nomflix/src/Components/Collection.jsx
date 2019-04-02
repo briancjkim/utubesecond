@@ -34,7 +34,13 @@ const Collection = ({ id, title, imageUrl }) => (
     <Title>Collection</Title>
     <Link to={`/collection/${id}`}>
       <ImageContainer>
-        <Image imageUrl={`https://image.tmdb.org/t/p/w300${imageUrl}`} />
+        <Image
+          imageUrl={
+            imageUrl
+              ? `https://image.tmdb.org/t/p/w300${imageUrl}`
+              : require("../assets/default_cover.jpg")
+          }
+        />
         <MovieTitle>{title}</MovieTitle>
       </ImageContainer>
     </Link>
