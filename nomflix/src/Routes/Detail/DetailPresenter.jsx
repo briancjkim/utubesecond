@@ -44,6 +44,7 @@ const Cover = styled.div`
 const Data = styled.div`
   width: 70%;
   margin-left: 20px;
+  /* overflow: auto; */
 `;
 const Title = styled.h3`
   font-size: 32px;

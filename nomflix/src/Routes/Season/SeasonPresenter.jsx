@@ -42,6 +42,7 @@ const Data = styled.div`
   width: 70%;
   height: 100%;
   padding-left: 20px;
+  overflow: hidden;
 `;
 
 const Title = styled.h3`
@@ -53,10 +54,15 @@ const OverView = styled.p`
   line-height: 1.5;
   width: 70%;
   opacity: 0.7;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 `;
 
 const ItemContainer = styled.div`
+  ::-webkit-scrollbar {
+    width: 0px; /* remove scrollbar space */
+    background: transparent; /* optional: just make scrollbar invisible */
+  }
+  overflow: scroll;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -68,6 +74,10 @@ const SubContainer = styled.div`
   width: 100%;
   min-height: 25%;
   margin-bottom: 20px;
+  /* because scrollbar cut marginbottom */
+  &:last-child {
+    margin-bottom: 140px;
+  }
 `;
 const PosterContainer = styled.div`
   height: 100%;
