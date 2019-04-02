@@ -72,11 +72,11 @@ const ItemContainer = styled.div`
 const SubContainer = styled.div`
   display: flex;
   width: 100%;
-  min-height: 25%;
+  min-height: 140px;
   margin-bottom: 20px;
   /* because scrollbar cut marginbottom */
   &:last-child {
-    margin-bottom: 140px;
+    margin-bottom: 220px;
   }
 `;
 const PosterContainer = styled.div`

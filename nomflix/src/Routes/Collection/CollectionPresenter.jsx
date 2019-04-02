@@ -42,6 +42,7 @@ const Data = styled.div`
   width: 70%;
   height: 100%;
   padding-left: 20px;
+  overflow: hidden;
 `;
 
 const Title = styled.h3`
@@ -57,6 +58,11 @@ const OverView = styled.p`
 `;
 
 const ItemContainer = styled.div`
+  ::-webkit-scrollbar {
+    width: 0px; /* remove scrollbar space */
+    background: transparent; /* optional: just make scrollbar invisible */
+  }
+  overflow: scroll;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -68,6 +74,10 @@ const SubContainer = styled.div`
   width: 100%;
   min-height: 25%;
   margin-bottom: 20px;
+  /* because scrollbar cut marginbottom */
+  &:last-child {
+    margin-bottom: 220px;
+  }
 `;
 const SLink = styled(Link)`
   height: 100%;
@@ -96,9 +106,12 @@ const SubOverView = styled.p`
   opacity: 0.7;
 `;
 const Year = styled.span`
-  font-size: 15px;
+  font-size: 12px;
 `;
 
+const Divider = styled.span`
+  margin: 0 10px;
+`;
 const CollectionPresenter = ({ result, error, loading }) =>
   loading ? (
     <>
@@ -131,13 +144,18 @@ const CollectionPresenter = ({ result, error, loading }) =>
                   <SubContainer>
                     <SLink to={`/movie/${part.id}`}>
                       <SubPoster
-                        bgUrl={`https://image.tmdb.org/t/p/w300${
+                        bgUrl={
                           part.poster_path
-                        }`}
+                            ? `https://image.tmdb.org/t/p/w300${
+                                part.poster_path
+                              }`
+                            : require("../../assets/default_cover.jpg")
+                        }
                       />
                     </SLink>
                     <SubInfo>
                       <Subtitle>{part.title}</Subtitle>
+                      <Divider>•</Divider>
                       <Year>{part.release_date.substr(0, 4)}</Year>
                       <SubOverView>
                         {part.overview.length > 500
