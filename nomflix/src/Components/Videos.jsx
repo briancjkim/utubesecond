@@ -1,5 +1,5 @@
 import React from "react";
-
+import device from "./Device";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -7,13 +7,24 @@ const Container = styled.div`
 `;
 const VideoContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, 320px);
-  grid-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1.5rem;
   margin-bottom: 20px;
+
+  @media ${device.tabPort} {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 const Video = styled.iframe`
-  height: 200px;
-  width: 320px;
+  height: 20rem;
+  width: 100%;
+
+  @media ${device.tabPort} {
+    width: 80%;
+  }
+  @media ${device.phone} {
+    width: 100%;
+  }
 `;
 const Title = styled.h4`
   width: 100%;

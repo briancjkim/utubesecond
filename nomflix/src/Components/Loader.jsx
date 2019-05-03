@@ -1,12 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
+// width: 100vw;
+//   height: 100vh;
+//   font-size: 0px;
+//   display: flex;
+//   justify-content: center;
 const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
-  font-size: 0px;
-  display: flex;
-  justify-content: center;
+position:absolute;
+  top:45%;
+  left:50%;
+  transfrom(-50%,-50%);
+
+
 `;
 const Icon = styled.svg`
   @keyframes spin {

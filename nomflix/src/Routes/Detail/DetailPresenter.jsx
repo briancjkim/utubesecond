@@ -7,11 +7,20 @@ import Collection from "../../Components/Collection";
 import Videos from "../../Components/Videos";
 import Production from "../../Components/Production";
 import Season from "../../Components/Season";
+import device from "../../Components/Device";
+
 const Container = styled.div`
   height: calc(100vh - 50px);
   width: 100vw;
   position: relative;
   padding: 50px;
+
+  @media ${device.tabPort} {
+    padding: 2rem;
+  }
+  @media ${device.phone} {
+    padding: 2rem 1rem;
+  }
 `;
 const BackDrop = styled.div`
   position: absolute;
@@ -41,10 +50,15 @@ const Cover = styled.div`
   background-size: cover;
   border-radius: 10px;
   background-position: center center;
+
+  @media ${device.phone} {
+    width: 40%;
+  }
 `;
 const Data = styled.div`
   width: 70%;
-  margin-left: 20px;
+  margin-left: 2rem;
+  padding-right: 1rem;
   ::-webkit-scrollbar {
     width: 20px; /* remove scrollbar space */
     background: rgba(
@@ -58,29 +72,47 @@ const Data = styled.div`
     background: rgba(204, 204, 214, 0.4);
   }
   overflow-y: scroll;
+
+  @media ${device.phone} {
+    width: 60%;
+    margin-left: 1rem;
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+  }
 `;
 const Title = styled.h3`
-  font-size: 32px;
+  font-size: 3.2rem;
 `;
 const ItemContainer = styled.div`
   display: flex;
   align-items: center;
-  margin: 20px 0;
+  margin: 2rem 0;
+  width: 90%;
 `;
 const Item = styled.span``;
 const Divider = styled.span`
-  margin: 0 10px;
+  margin: 0 1rem;
 `;
 const Overview = styled.p`
-  font-size: 12px;
+  font-size: 1.2rem;
   line-height: 1.5;
-  width: 50%;
+  width: 60%;
   opacity: 0.7;
   margin-bottom: 20px;
+
+  @media ${device.tabLand} {
+    width: 100%;
+  }
+  @media ${device.phone} {
+    line-height: 1.2;
+  }
 `;
 const Link = styled.a``;
 const Icon = styled.img`
-  height: 35px;
+  height: 3.5rem;
+  padding: 0;
+  margin: 0;
 `;
 
 const DetailPresenter = ({ result, error, loading }) =>

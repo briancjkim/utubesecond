@@ -3,12 +3,20 @@ import Loader from "../../Components/Loader";
 import styled from "styled-components";
 import Helmet from "react-helmet";
 import { Link } from "react-router-dom";
+import device from "../../Components/Device";
 
 const Container = styled.div`
   position: relative;
   height: calc(100vh - 50px);
   width: 100vw;
   padding: 50px;
+
+  @media ${device.tabPort} {
+    padding: 2rem;
+  }
+  @media ${device.phone} {
+    padding: 2rem 1rem;
+  }
 `;
 const BackDrop = styled.div`
   position: absolute;
@@ -38,6 +46,10 @@ const Cover = styled.div`
   background-size: cover;
   background-position: center center;
   border-radius: 10px;
+
+  @media ${device.phone} {
+    width: 40%;
+  }
 `;
 
 const Data = styled.div`
@@ -51,19 +63,39 @@ const Data = styled.div`
   overflow-y: scroll;
   width: 70%;
   height: 100%;
-  padding-left: 20px;
+  padding-left: 2rem;
+
+  @media ${device.tabPort} {
+    text-align: center;
+  }
+  @media ${device.phone} {
+    width: 60%;
+    padding-left: 1rem;
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+  }
 `;
 
 const Title = styled.h3`
-  font-size: 32px;
-  margin-bottom: 20px;
+  font-size: 3.2rem;
+  margin-bottom: 2rem;
 `;
 const OverView = styled.p`
-  font-size: 12px;
+  font-size: 1.4rem;
   line-height: 1.5;
-  width: 70%;
+  width: 90%;
   opacity: 0.7;
-  margin-bottom: 20px;
+  margin-bottom: 4rem;
+
+  @media ${device.tabLand} {
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+  @media ${device.phone} {
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
 `;
 
 const ItemContainer = styled.div`
@@ -76,17 +108,33 @@ const ItemContainer = styled.div`
 const SubContainer = styled.div`
   display: flex;
   width: 100%;
-  min-height: 140px;
+  min-height: 14rem;
   margin-bottom: 20px;
   /* because scrollbar cut marginbottom */
   /* &:last-child {
     margin-bottom: 220px;
   } */
+
+  @media ${device.tabPort} {
+    flex-direction: column;
+    min-height: 25rem;
+  }
 `;
 const PosterContainer = styled.div`
   height: 100%;
   width: 30%;
+
+  @media ${device.tabPort} {
+    width: 50%;
+    height: 80%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+  @media ${device.phone} {
+    width: 50%;
+  }
 `;
+
 const SubPoster = styled.div`
   background-image: url(${props => props.bgUrl});
   background-size: cover;
@@ -98,23 +146,38 @@ const SubPoster = styled.div`
 
 const SubInfo = styled.div`
   width: 70%;
-  padding-left: 10px;
+  padding: 0 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media ${device.tabPort} {
+    width: 90%;
+  }
 `;
 const Subtitle = styled.span`
-  font-size: 15px;
+  font-size: 1.5rem;
   font-weight: 300;
+  margin-bottom: 1rem;
+  @media ${device.tabPort} {
+    font-size: 1.3rem;
+  }
 `;
 const SubOverView = styled.p`
-  margin-top: 10px;
-  font-size: 12px;
+  margin: 0 1rem;
+  font-size: 1.2rem;
   line-height: 1.5;
   opacity: 0.7;
+
+  @media ${device.phone} {
+    line-height: 1.2;
+    margin: 0;
+  }
 `;
 const Year = styled.span`
-  font-size: 12px;
+  font-size: 1.2rem;
 `;
 const Divider = styled.span`
-  margin: 0 10px;
+  margin: 0 1rem;
 `;
 const SeasonPresenter = ({ result, error, loading }) =>
   loading ? (

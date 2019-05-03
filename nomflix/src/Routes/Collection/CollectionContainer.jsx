@@ -33,9 +33,6 @@ class CollectionContainer extends React.Component {
     }
   }
   render() {
-    {
-      console.log(this.state);
-    }
     const { result, error, loading } = this.state;
     return (
       <CollectionPresenter result={result} error={error} loading={loading} />

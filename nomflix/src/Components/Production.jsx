@@ -1,14 +1,41 @@
 import React from "react";
 import styled from "styled-components";
+import device from "./Device";
 
 const Container = styled.div`
   width: 100%;
+  margin-bottom: 20px;
+`;
+const Title = styled.h4`
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 300;
   margin-bottom: 20px;
 `;
 const Data = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+
+  ::-webkit-scrollbar {
+    height: 20px;
+    width:20px;
+    background:rgba(0,0,0,0.2);
+    ); /* optional: just make scrollbar invisible */
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(204, 204, 214,0.4);
+  }
+  overflow-x: scroll;
+  overflow-y:hidden;
+
+  @media ${device.phone} {
+    ::-webkit-scrollbar {
+      width: 5px; 
+      height:5px;
+      background:rgba(0,0,0,0.2);
+      );
+  }
 `;
 const CompanyContainer = styled.div`
   display: flex;
@@ -28,19 +55,15 @@ const CompanyImage = styled.div`
   border-radius: 50%;
   background-size: cover;
   background-position: center center;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
   background-color: rgba(255, 255, 255, 0.5);
 `;
-const Title = styled.h4`
-  width: 100%;
-  font-size: 20px;
-  font-weight: 300;
-  margin-bottom: 20px;
-`;
+
 const Info = styled.span`
-  font-size: 14px;
+  font-size: 1.4rem;
   max-width: 100px;
   text-align: center;
+  margin-bottom: 1rem;
 `;
 const Production = ({ companies }) => (
   <Container>

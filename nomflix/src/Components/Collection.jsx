@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 50%;
+  width: 100%;
   margin-bottom: 20px;
 `;
 const ImageContainer = styled.div`
@@ -26,7 +26,7 @@ const Title = styled.h4`
   margin-bottom: 20px;
 `;
 const MovieTitle = styled.span`
-  font-size: 14px;
+  font-size: 1.4rem;
   opacity: 0.8;
 `;
 const Collection = ({ id, title, imageUrl }) => (

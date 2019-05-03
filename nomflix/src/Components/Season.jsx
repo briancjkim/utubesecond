@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import device from "./Device";
 
 const Container = styled.div`
-  width: 60%;
+  width: 90%;
   margin-bottom: 20px;
   overflow: hidden;
 `;
@@ -16,7 +17,8 @@ const Title = styled.h4`
 const Seasons = styled.div`
     display: flex;
   ::-webkit-scrollbar {
-    width: 0px; /* remove scrollbar space */
+    height: 20px;
+    width:20px;
     background:rgba(0,0,0,0.2);
     ); /* optional: just make scrollbar invisible */
   }
@@ -24,7 +26,16 @@ const Seasons = styled.div`
     background: rgba(204, 204, 214,0.4);
   }
   overflow-x: scroll;
+
+  @media ${device.phone} {
+    ::-webkit-scrollbar {
+      width: 5px; 
+      height:5px;
+      background:rgba(0,0,0,0.2);
+      );
+  }
 `;
+
 const SLink = styled(Link)`
   &:not(:last-of-type) {
     margin-right: 15px;
@@ -44,6 +55,11 @@ const Image = styled.div`
   background-position: center center;
   border-radius: 10px;
   margin-bottom: 10px;
+
+  @media ${device.phone} {
+    width: 50px;
+    height: 50px;
+  }
 `;
 const MovieTitle = styled.span`
   font-size: 14px;
