@@ -44,7 +44,11 @@ const CompanyContainer = styled.div`
   align-items: center;
 
   &:not(:last-child) {
-    margin-right: 20px;
+    margin-right: 2rem;
+
+    @media ${device.phone} {
+      margin-right: 1rem;
+    }
   }
 `;
 
