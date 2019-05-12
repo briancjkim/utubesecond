@@ -86,14 +86,14 @@ const Title = styled.h3`
   margin-bottom: 20px;
 `;
 const OverView = styled.p`
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   line-height: 1.5;
   width: 70%;
   opacity: 0.7;
   margin-bottom: 40px;
 
   @media ${device.tabLand} {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     width: 90%;
     margin-bottom: 2rem;
   }

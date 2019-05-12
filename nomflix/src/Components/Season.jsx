@@ -17,15 +17,15 @@ const Title = styled.h4`
 const Seasons = styled.div`
     display: flex;
   ::-webkit-scrollbar {
-    height: 20px;
-    width:20px;
+    height: 10px;
+    width: 10px;
     background:rgba(0,0,0,0.2);
     ); /* optional: just make scrollbar invisible */
   }
   ::-webkit-scrollbar-thumb {
     background: rgba(204, 204, 214,0.4);
   }
-  overflow-x: scroll;
+  overflow-x: auto;
 
   @media ${device.phone} {
     ::-webkit-scrollbar {

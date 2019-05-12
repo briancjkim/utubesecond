@@ -4,11 +4,10 @@ import device from "./Device";
 
 const Container = styled.div`
   width: 100%;
-  margin-bottom: 20px;
 `;
 const Title = styled.h4`
   width: 100%;
-  font-size: 2rem;
+  font-size: 20px;
   font-weight: 300;
   margin-bottom: 20px;
 `;
@@ -26,7 +25,7 @@ const Data = styled.div`
   ::-webkit-scrollbar-thumb {
     background: rgba(204, 204, 214,0.4);
   }
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y:hidden;
 
   @media ${device.phone} {
@@ -42,7 +41,7 @@ const CompanyContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  padding: 0 1rem;
   &:not(:last-child) {
     margin-right: 2rem;
 
@@ -64,8 +63,9 @@ const CompanyImage = styled.div`
 `;
 
 const Info = styled.span`
-  font-size: 1.4rem;
-  max-width: 100px;
+  display: inline-block;
+  font-size: 1.2rem;
+  max-width: 50px;
   text-align: center;
   margin-bottom: 1rem;
 `;
